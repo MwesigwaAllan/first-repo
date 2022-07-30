@@ -1,0 +1,61 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>webcalculator/login</title>
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html"><img src ="images/logo.png"></a>
+      </div>
+    </header>
+    <section class="main">
+        <div class="container">
+            <h1>Login</h1>
+        <div class= "card">
+            <form action="login" method="post" id ='signin'>
+                <div><input class="username" id="username" type="text" placeholder="username"></div>
+                <div><input class="password" id="password" type="text" placeholder="password"></div>
+                <div><input type="submit" value="submit"></div>
+            </form>
+        </div>
+        </div>
+    </section>
+    <script>
+        const form=document.getElementById('signin')
+        form.addEventListener('submit', loginUser)
+
+        async function loginUser(event){
+            event.preventDefault()
+            const username=document.getElementById('username').value
+            const password=document.getElementById('password').value
+
+            const result=await fetch('/api/signin',{
+                method:'POST',
+                headers:{
+                    'Content-Type':'application/json'
+                },
+                body:JSON.stringify({
+                    username,
+                    password
+                })
+            }).then((res)=> res.json())
+
+           if(result.status==='ok'){
+               //everthing is ok
+                console.log('got the token: ',result.data)
+                // store the token locally so that it persists after refreshes
+                localStorage.setItem('token', result.data)
+               alert('success')
+               window.location.href="http://localhost:3000/Calculator.html"
+
+           }else{
+               alert(result.error)
+           }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+a{
+    text-decoration: none;
+}
+body{
+    width:100vw;
+    height: 100vw;
+    overflow: hidden;
+}
+header{
+    width: 100vw;
+    max-height: 100px;
+    background-color: rgb(178, 200, 252) ;
+}
+header .logo{
+    width: 80vw;
+    max-height: 100px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+.logo img{
+    margin-top: 0px;
+    width: 100px;
+    height: 100px;
+}
+.main{
+    width: 100vw;
+    height: 70vw;
+}
+.main .container{
+    width: 80vw;
+    height: 80%;
+    margin: auto;
+}
+h1{
+    position: absolute;
+    color:rgb(15, 65, 111) ;
+    left:200px;
+    font-size: 2rem;
+}
+.card{
+    
+    max-width:400px ;
+    top:50px;
+    height: 300px;
+    background-color: #002a4b;
+    margin: 20px auto;
+    box-shadow: 3px 3px 3px rgb(52, 91, 180) ;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    padding-top: 30px;
+}
+form{
+    width: 80%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: space-between;
+    text-align: center;
+}
+input{
+    width: auto;
+    height: auto;
+    border-style:groove;
+    border-radius:5px;
+}
+input:hover{
+    border: solid 2px rgba(0, 255, 255, 0.349);
+}
+

@@ -1,0 +1,56 @@
+*, *::before, *::after{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+.body{
+    
+    overflow: hidden;
+    width: fit-content;
+    
+}
+.container{
+    position: relative;
+    display: flex;
+    padding: 50px;
+    justify-content: space-between;
+    height:fit-content;
+    
+}
+.div{
+    display: flex;
+    
+}
+.card{
+    background-color:#9cbad1 ;
+    border: 2px solid #002a4b9a;
+    border-radius: 20px;
+    max-width: 450px;
+    min-width:160px ;
+}
+.center{
+    margin-left: 15px;
+    margin-right: 15px;
+}
+h1{
+    text-align: center;
+    color: #002a4b;
+    font-size: 2rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+h2{
+    color:#245e8a; 
+    font-size: 1.5rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.footer{
+    margin-top: 100px;
+    position: absolute ;
+    width:100vw;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    background-color: rgb(15, 65, 111);
+
+  }
+ 

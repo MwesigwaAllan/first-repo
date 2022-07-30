@@ -1,0 +1,63 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>webcalculator/signup</title>
+    <link rel="stylesheet" href="css/signup.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html"><h1><img src ="images/logo.png"></h1></a>
+      </div>
+    </header>
+    <section class="main">
+        <div class="container">
+            <h1>Registration</h1>
+        <div class= "card">
+            
+            <form action="signup" method="post" id ="reg" >
+                <div><input class="email" id ="email" type="text" placeholder="email"></div>
+                <div><input class="username" id ="username" type="text" placeholder="username"></div>
+                <div><input class="password" id ="password" type="text" placeholder="password"></div>
+                <div><button type="submit" class="input" value="submit">create</button></div>
+            </form>
+        </div>
+        </div>
+    </section>
+    <script>
+        const form=document.getElementById('reg')
+        form.addEventListener('submit', registerUser)
+
+        async function registerUser(event){
+            event.preventDefault()
+            const email=document.getElementById('email').value
+            const username=document.getElementById('username').value
+            const password=document.getElementById('password').value
+
+            const result=await fetch('/api/register',{
+                method:'POST',
+                headers:{
+                    'Content-Type':'application/json'
+                },
+                body:JSON.stringify({
+                    email,
+                    username,
+                    password
+                })
+            }).then((res)=> res.json())
+
+            if(result.status === 'ok'){
+                //everything went fine
+                alert('success')
+                fetch('http://localhost:3000/login.html')
+                window.location.href="http://localhost:3000/login.html"
+
+            }else{
+                alert(result.error)
+            }
+        }
+    </script>
+</body>
+</html>
